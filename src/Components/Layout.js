@@ -214,7 +214,7 @@ export default class Layout extends React.Component{
                     </Row>
                     <Row style={{marginTop: '1em'}}>
                         <Col>
-                            <CustomCard head="Items/Services purchased">
+                            <CustomCard head="Checks">
                                 <ProductsAndPrices itemsListing={this.state.itemsListing}/>
                                 <DescriptionAndAmount
                                     descriptionVal={this.state.descriptionVal}
