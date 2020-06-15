@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CustomTextField from "./CustomTextField";
 import CustomTextArea from './CustomTextArea';
-import ProductsAndPrices from "./ProductsAndPricesListing";
+import ChecksAndTotals from "./ChecksAndTotals";
 import FinalTotal from "./FinalTotal";
 import DescriptionAndAmount from './InputDescriptionAndAmount';
 import Button from 'react-bootstrap/Button';
@@ -215,7 +215,7 @@ export default class Layout extends React.Component{
                     <Row style={{marginTop: '1em'}}>
                         <Col>
                             <CustomCard head="Checks">
-                                <ProductsAndPrices itemsListing={this.state.itemsListing}/>
+                                <ChecksAndTotals itemsListing={this.state.itemsListing}/>
                                 <DescriptionAndAmount
                                     descriptionVal={this.state.descriptionVal}
                                     totalVal={this.state.totalVal}

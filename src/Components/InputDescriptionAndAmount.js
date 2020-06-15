@@ -17,7 +17,7 @@ export default class InputDescriptionAndAmount extends React.Component{
                     <Col>
                         <CustomTextField
                             customId='itemDescription'
-                            label='Item Description'
+                            label='Check Description'
                             name='itemDescription'
                             placeholder='Enter a short description...'
                             val={this.props.descriptionVal}
@@ -27,7 +27,7 @@ export default class InputDescriptionAndAmount extends React.Component{
                     <Col>
                         <CustomTextField
                             customId='itemAmount'
-                            label='Item Amount'
+                            label='Check Amount'
                             name='itemAmount'
                             placeholder='Enter the amount...'
                             val={this.props.totalVal}

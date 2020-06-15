@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-export default class ProductsAndPrices extends React.Component {
+export default class ChecksAndTotals extends React.Component {
     constructor(props){
         super(props);
     }
