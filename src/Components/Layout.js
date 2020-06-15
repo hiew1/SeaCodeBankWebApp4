@@ -23,12 +23,11 @@ export default class Layout extends React.Component{
             depositDescription : '',
             termsAndConditions : '',
             descriptionVal : '',
-            totalVal : '',
+            amountVal : '',
             itemsListing : [],
             show : false,
             title : '',
             content : ''
-
         }
         this.textFieldsHandler = this.textFieldsHandler.bind(this);
         this.buttonClick = this.buttonClick.bind(this);
@@ -49,22 +48,22 @@ export default class Layout extends React.Component{
         // final total
         const currentItems = this.state.itemsListing;
         let finalTotal = 0;
-        currentItems.map((product, index)=>{
-            finalTotal = finalTotal + product.total;
+        currentItems.map((check1, index)=>{
+            finalTotal = finalTotal + check1.amount;
         });
 
         // deposit information
         const Deposit = {
-            adminName : input.adminName,
-            customerName : input.customerName,
-            customerAddress : input.customerAddress,
-            items : input.items,
-            finalTotal : input.finalTotal,
-            terms : input.terms,
-            depositDescription : input.depositDescription
+            adminName : this.state.adminName,
+            customerName : this.state.customerName,
+            customerAddress : this.state.customerAddress,
+            items : this.state.items,
+            finalTotal : finalTotal,
+            terms : this.state.termsAndConditions,
+            depositDescription : this.state.depositDescription
         };
 
-        fetch('/api/createdeposit', {
+        fetch('/api/create', {
             method : 'POST',
             body : JSON.stringify(Deposit),
             headers : {
@@ -84,9 +83,9 @@ export default class Layout extends React.Component{
                 this.setState({
                     show : true,
                     title : 'Error!!',
-                    content : 'Problems when creating the deposit, try it again.'
+                    content : 'Problems encountered when creating the deposit, try it again.'
                 });
-                console.log('Problems when saving the deposit');
+                console.log('Problems encountered when saving the deposit');
             }
         });
 
@@ -102,7 +101,7 @@ export default class Layout extends React.Component{
                 itemsListing : currentArray.concat([
                     {
                         description : state.descriptionVal,
-                        total : parseFloat(state.totalVal)
+                        amount : parseFloat(state.amountVal)
                     }
                 ])
             }
@@ -118,12 +117,12 @@ export default class Layout extends React.Component{
 
             console.log('Item Description: ' + this.state.descriptionVal);
         }
-        if(event.target.name === 'itemTotal'){
+        if(event.target.name === 'itemAmount'){
             this.setState({
-                totalVal : event.target.value
+                amountVal : event.target.value
             });
 
-            console.log('Item total: ' + this.state.totalVal);
+            console.log('Item Amount: ' + this.state.amountVal);
         }
         if(event.target.name === 'termsAndConditions'){
             this.setState({
@@ -218,7 +217,7 @@ export default class Layout extends React.Component{
                                 <ChecksAndTotals itemsListing={this.state.itemsListing}/>
                                 <DescriptionAndAmount
                                     descriptionVal={this.state.descriptionVal}
-                                    totalVal={this.state.totalVal}
+                                    amountVal={this.state.amountVal}
                                     customHandler={this.textFieldsHandler}
                                     buttonHandler={this.buttonClick}/>
                             </CustomCard>

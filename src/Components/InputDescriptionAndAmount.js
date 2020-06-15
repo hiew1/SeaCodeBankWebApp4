@@ -30,7 +30,7 @@ export default class InputDescriptionAndAmount extends React.Component{
                             label='Check Amount'
                             name='itemAmount'
                             placeholder='Enter the amount...'
-                            val={this.props.totalVal}
+                            val={this.props.amountVal}
                             inputHandler={this.props.customHandler}
                         />
                     </Col>

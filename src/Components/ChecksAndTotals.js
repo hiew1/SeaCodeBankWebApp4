@@ -13,11 +13,11 @@ export default class ChecksAndTotals extends React.Component {
         const items = this.props.itemsListing;
         let htmlMarkup = [];
 
-        items.map((product, index )=>{
+        items.map((check1, index )=>{
             htmlMarkup.push(
                 <Row key={'index-'+ index}>
-                    <Col>{product.description}</Col>
-                    <Col>${product.total}</Col>
+                    <Col>{check1.description}</Col>
+                    <Col>${check1.amount}</Col>
                 </Row>
             );
         });

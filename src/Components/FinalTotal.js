@@ -11,8 +11,8 @@ export default class FinalTotal extends React.Component {
     render(){
         const items = this.props.itemsListing;
         let finalTotal = 0;
-        items.map((product, index)=>{
-            finalTotal = finalTotal + product.amount;
+        items.map((check1, index)=>{
+            finalTotal = finalTotal + check1.amount;
         });
         return(
             <Container>
